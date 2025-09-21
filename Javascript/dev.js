@@ -157,24 +157,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // This is a demo - in a real implementation, you'd load the actual file content
         const fileContents = {
-            'Pages/home.html': `<!DOCTYPE html>
+            'Pages/index.html': `<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ParaX Games</title>
-    <!-- Font and styles here -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XPlay</title>
+<!-- Font and styles here -->
 </head>
 <body>
-    <canvas id="starfield"></canvas>
-    <nav>
-        <!-- Navigation here -->
-    </nav>
-    <main>
-        <h1>ParaX Games</h1>
-        <p>ParaX Games is a website that allows you to play games that are blocked by your school</p>
-    </main>
-    <script src="../Javascript/main.js"></script>
+<canvas id="starfield"></canvas>
+<nav>
+    <!-- Navigation here -->
+</nav>
+<main>
+    <h1>XPlay</h1>
+    <p>XPlay is a website that allows you to play games that are blocked by your school</p>
+</main>
+<script src="../Javascript/main.js"></script>
 </body>
 </html>`,
             'style.css': `/* CSS content would be loaded here */`,
