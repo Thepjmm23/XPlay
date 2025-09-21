@@ -2,33 +2,33 @@
     "games":  [
                   {
                       "name":  "Happy Wheels",
-                      "image":  "happywheels/166950-HUdYLFwSkLSLQIwO.png", 
-                      "file":  "happywheels/index.html"
+                      "image":  "./happywheels/166950-HUdYLFwSkLSLQIwO.png", 
+                      "file":  "./happywheels/index.html"
                   },
                   {
                       "name":  "Pac Man",
-                      "image":  "pacman/sejarah-penciptaan-game-legendaris-pac-man-10aXQ8DlD0.jpg",
-                      "file":  "pacman/index.html"
+                      "image":  "./pacman/sejarah-penciptaan-game-legendaris-pac-man-10aXQ8DlD0.jpg",
+                      "file":  "./pacman/index.html"
                   },
                   {
                       "name":  "Paper.io 2",
-                      "image":  "paperio2/images/logo.png",
-                      "file":  "paperio2/index.html" 
+                      "image":  "./paperio2/images/logo.png",
+                      "file":  "./paperio2/index.html" 
                   },
                   {
                       "name":  "Snow Rider 3D",
-                      "image":  "snowrider3d/snow.png",
-                      "file":  "snowrider3d/index.html"
+                      "image":  "./snowrider3d/snow.png",
+                      "file":  "./snowrider3d/index.html"
                   },
                   {
                       "name":  "Stickman",
-                      "image":  "Stickman/stickman.png",
-                      "file":  "Stickman/index.html"
+                      "image":  "./Stickman/stickman.png",
+                      "file":  "./Stickman/index.html"
                   },
                   {
                       "name":  "Subway-Surfers",
                       "image": "",
-                      "file":  "Subway-Surfers/index.html"
+                      "file":  "./Subway-Surfers/index.html"
                   }
               ]
 }
