@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameContainer = document.getElementById('game-container');
 
-    fetch('../Data/games.json')
+    fetch('Data/games.json')
         .then(response => response.json())
         .then(data => {
             data.games.forEach(game => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameCard.classList.add('game-card');
 
                 const gameLink = document.createElement('a');
-                gameLink.href = `../Pages/play.html?game=${encodeURIComponent(game.file)}`;
+                gameLink.href = `play.html?game=${encodeURIComponent(game.file)}`;
 
                 const gameTitle = document.createElement('h3');
                 gameTitle.textContent = game.name;
