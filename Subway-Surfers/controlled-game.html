@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Game with Audio Control</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        #audio-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="audio-controls">
+            <button id="mute-btn">Mute</button>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+        </div>
+        <iframe src="https://files.ufreegame.net/1024/Subway-Surfers-Zurich/" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const muteBtn = document.getElementById('mute-btn');
+            const volumeSlider = document.getElementById('volume-slider');
+
+            // Create a hidden audio element that mirrors the iframe's audio
+            const audioMirror = document.createElement('audio');
+            audioMirror.style.display = 'none';
+            document.body.appendChild(audioMirror);
+
+            // Try to access iframe content (this will fail for cross-origin)
+            const iframe = document.querySelector('iframe');
+            const setVolume = (volume) => {
+                try {
+                    // This won't work for cross-origin iframes
+                    const iframeDoc = iframe.contentWindow.document;
+                    const media = iframeDoc.querySelectorAll('audio, video');
+                    media.forEach(el => el.volume = volume);
+                } catch (e) {
+                    // Fallback: control our own audio element
+                    audioMirror.volume = volume;
+                }
+            };
+
+            muteBtn.addEventListener('click', () => {
+                if (volumeSlider.value == 0) {
+                    volumeSlider.value = 1;
+                    muteBtn.textContent = 'Mute';
+                } else {
+                    volumeSlider.value = 0;
+                    muteBtn.textContent = 'Unmute';
+                }
+                setVolume(volumeSlider.value);
+            });
+
+            volumeSlider.addEventListener('input', () => {
+                const volume = volumeSlider.value;
+                setVolume(volume);
+                if (volume == 0) {
+                    muteBtn.textContent = 'Unmute';
+                } else {
+                    muteBtn.textContent = 'Mute';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

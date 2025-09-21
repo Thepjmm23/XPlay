@@ -1,0 +1,34 @@
+﻿{
+    "games":  [
+                  {
+                      "name":  "Happy Wheels",
+                      "image":  "../Assets/Games/happywheels/166950-HUdYLFwSkLSLQIwO.png", 
+                      "file":  "../Assets/Games/happywheels/index.html"
+                  },
+                  {
+                      "name":  "Pac Man",
+                      "image":  "../Games/pacman/sejarah-penciptaan-game-legendaris-pac-man-10aXQ8DlD0.jpg",
+                      "file":  "../Assets/pacman/index.html"
+                  },
+                  {
+                      "name":  "Paper.io 2",
+                      "image":  "../Assets/paperio2/images/logo.png",
+                      "file":  "../Assets/paperio2/index.html" 
+                  },
+                  {
+                      "name":  "Snow Rider 3D",
+                      "image":  "../Assets/snowrider3d/snow.png",
+                      "file":  "../Assets/snowrider3d/index.html"
+                  },
+                  {
+                      "name":  "Stickman",
+                      "image":  "../Assets/Stickman/stickman.png",
+                      "file":  "../Assets/Stickman/index.html"
+                  },
+                  {
+                      "name":  "Subway-Surfers",
+                      "image": "",
+                      "file":  "../Assets/Subway-Surfers/index.html"
+                  }
+              ]
+}

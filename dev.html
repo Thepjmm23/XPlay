@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Panel - ParaX Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .dev-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .dev-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .dev-section h2 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .dev-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .dev-control {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dev-control h3 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .toggle-control {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .toggle-control label {
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 24px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .password-prompt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+        }
+
+        .password-prompt h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .password-prompt input {
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        .password-prompt button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .password-prompt button:hover {
+            background-color: #0b7dda;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            margin-top: 10px;
+        }
+
+        .file-viewer {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .file-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .file-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .file-item.active {
+            background: rgba(33, 150, 243, 0.3);
+            border: 1px solid #2196F3;
+        }
+
+        .file-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .dev-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .dev-button:hover {
+            background-color: #45a049;
+        }
+
+        .dev-button.danger {
+            background-color: #f44336;
+        }
+
+        .dev-button.danger:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <nav>
+        <a href="home.html" class="nav-button">Home</a>
+        <a href="games.html" class="nav-button">Games</a>
+        <a href="settings.html" class="nav-button">Settings</a>
+        <a href="dev.html" class="nav-button">Developer</a>
+    </nav>
+
+    <div id="password-prompt" class="password-prompt">
+        <h1>Developer Access</h1>
+        <input type="password" id="dev-password" placeholder="Enter Developer Password">
+        <button id="access-btn">Access Developer Panel</button>
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <div id="dev-panel" style="display: none;">
+        <div class="dev-container">
+            <h1 style="text-align: center; color: #fff; margin-bottom: 30px;">Developer Control Panel</h1>
+
+            <div class="dev-section">
+                <h2>Website Settings</h2>
+                <div class="dev-controls">
+                    <div class="dev-control">
+                        <h3>Audio Controls</h3>
+                        <div class="toggle-control">
+                            <label>Enable Mute Button</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-mute">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="dev-control">
+                        <h3>Theme Settings</h3>
+                        <div class="toggle-control">
+                            <label>Enable Mouse Interaction</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-mouse-interaction">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="dev-control">
+                        <h3>Tab Cloaking</h3>
+                        <div class="toggle-control">
+                            <label>Enable Tab Cloak</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-cloak">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="dev-control">
+                        <h3>Anti-Close</h3>
+                        <div class="toggle-control">
+                            <label>Enable Anti-Close Warning</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-anti-close">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dev-section">
+                <h2>Global Controls</h2>
+                <div class="dev-controls">
+                    <div class="dev-control">
+                        <h3>Website Features</h3>
+                        <button class="dev-button" id="disable-audio-global">Disable Audio Controls (Global)</button>
+                        <button class="dev-button" id="enable-audio-global">Enable Audio Controls (Global)</button>
+                    </div>
+
+                    <div class="dev-control">
+                        <h3>Theme Controls</h3>
+                        <button class="dev-button" id="set-theme-space">Set Theme: Space</button>
+                        <button class="dev-button" id="set-theme-hacking">Set Theme: Hacking</button>
+                        <button class="dev-button" id="set-theme-ocean">Set Theme: Ocean</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dev-section">
+                <h2>File System</h2>
+                <div class="dev-controls">
+                    <div class="dev-control">
+                        <h3>Project Files</h3>
+                        <div class="file-viewer" id="file-viewer">
+                            <div class="file-item" data-path="Pages/home.html">Pages/home.html</div>
+                            <div class="file-item" data-path="Pages/games.html">Pages/games.html</div>
+                            <div class="file-item" data-path="Pages/settings.html">Pages/settings.html</div>
+                            <div class="file-item" data-path="Pages/play.html">Pages/play.html</div>
+                            <div class="file-item" data-path="Pages/dev.html">Pages/dev.html</div>
+                            <div class="file-item" data-path="Javascript/main.js">Javascript/main.js</div>
+                            <div class="file-item" data-path="Javascript/games.js">Javascript/games.js</div>
+                            <div class="file-item" data-path="Javascript/settings.js">Javascript/settings.js</div>
+                            <div class="file-item" data-path="style.css">style.css</div>
+                            <div class="file-item" data-path="Data/games.json">Data/games.json</div>
+                        </div>
+                        <div class="file-content" id="file-content" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dev-section">
+                <h2>System Controls</h2>
+                <div class="dev-controls">
+                    <div class="dev-control">
+                        <h3>Maintenance</h3>
+                        <button class="dev-button danger" id="clear-storage">Clear All User Data</button>
+                        <button class="dev-button" id="reset-settings">Reset All Settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Javascript/main.js"></script>
+    <script src="../Javascript/dev.js"></script>
+</body>
+</html>

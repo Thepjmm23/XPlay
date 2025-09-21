@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Unblocked Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../Javascript/apply-settings.js" defer></script>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <nav>
+        <a href="home.html" class="nav-button">Home</a>
+        <a href="games.html" class="nav-button">Games</a>
+        <a href="settings.html" class="nav-button">Settings</a>
+        <a href="dev.html" class="nav-button">Developer</a>
+        <button id="open-in-new-tab" class="nav-button special-button">Open in New Tab</button>
+    </nav>
+    <main>
+        <h1>Settings</h1>
+        <div class="settings-container">
+            <div class="setting-card">
+                <h2>Tab Cloaking</h2>
+                <p>Disguise the website in your browser tab.</p>
+                <input type="text" id="tab-title" placeholder="New Tab Title (e.g., Google)">
+                <input type="text" id="tab-icon" placeholder="New Tab Icon URL (e.g., /favicon.ico)">
+                <button id="apply-cloak">Apply Cloak</button>
+                <button id="reset-cloak">Reset Cloak</button>
+            </div>
+            <div class="setting-card">
+                <h2>Anti-Close</h2>
+                <p>Warn you before you accidentally close the page.</p>
+                <label class="switch">
+                    <input type="checkbox" id="anti-close-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="setting-card">
+                <h2>Themes & Backgrounds</h2>
+                <p>Change the look and feel of the site.</p>
+                <select id="theme-select">
+                    <option value="space">Space (Default)</option>
+                    <option value="hacking">Hacking</option>
+                    <option value="ocean">Ocean</option>
+                </select>
+            </div>
+            <div class="setting-card">
+                <h2>Interactive Background</h2>
+                <p>Add effects that respond to your mouse.</p>
+                <div class="setting-row">
+                    <span>Click Effect</span>
+                    <label class="switch">
+                        <input type="checkbox" id="click-effect-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="setting-row">
+                    <span>Mouse Interaction</span>
+                    <select id="mouse-interaction-select">
+                        <option value="off">Off</option>
+                        <option value="push">Push Away</option>
+                        <option value="pull">Pull In</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../Javascript/main.js"></script>
+    <script src="../Javascript/settings.js"></script>
+</body>
+</html>
