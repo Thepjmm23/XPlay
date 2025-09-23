@@ -8,8 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const gameCard = document.createElement('div');
                 gameCard.classList.add('game-card');
 
-                const gameLink = document.createElement('a');
-                gameLink.href = `play.html?game=${encodeURIComponent(game.file)}`;
+                // Check if the file is an external URL
+                const isExternalUrl = game.file.startsWith('http://') || game.file.startsWith('https://');
+
+                const gameLink = document.createElement(isExternalUrl ? 'a' : 'a');
+                gameLink.href = isExternalUrl ? game.file : `play.html?game=${encodeURIComponent(game.file)}`;
+                gameLink.target = isExternalUrl ? '_blank' : '_self';
+                gameLink.rel = isExternalUrl ? 'noopener noreferrer' : '';
 
                 const gameTitle = document.createElement('h3');
                 gameTitle.textContent = game.name;

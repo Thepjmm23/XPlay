@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "name": "Windows 11 Web",
+            "image": "./Stickman/images/01a19822638a94430c234bb507359a77-CHAR_Corgi.png",
+            "file": "https://win11.blueedge.me/",
+            "category": "utilities",
+            "description": "Experience Windows 11 interface in your browser"
+        }
+    ]
+}

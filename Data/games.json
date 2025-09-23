@@ -26,9 +26,14 @@
                       "file":  "./Stickman/index.html"
                   },
                   {
-                      "name":  "Subway-Surfers",
-                      "image": "",
-                      "file":  "./Subway-Surfers/index.html"
-                  }
+                      "name":  "Suggest a Game",
+                      "image":  "./GoogleForms.png",
+                      "file":  "https://forms.gle/T5xt8wMJktfiTXrd6"
+                  },
+                {
+                    "name":  "Subway-Surfers",
+                    "image": "",
+                    "file":  "./Subway-Surfers/index.html"
+                }
               ]
 }

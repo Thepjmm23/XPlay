@@ -20,22 +20,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('click', (event) => {
         if (localStorage.getItem('clickEffect') !== 'true') return;
-        
+
         const themeName = localStorage.getItem('theme') || 'space';
+
+        // Theme-specific click effects
+        switch(themeName) {
+            case 'hacking':
+                createHackingClickEffect(event.x, event.y);
+                break;
+            case 'ocean':
+                createOceanClickEffect(event.x, event.y);
+                break;
+            case 'space':
+                createSpaceClickEffect(event.x, event.y);
+                break;
+            default:
+                createDefaultClickEffect(event.x, event.y, themeName);
+        }
+    });
+
+    function createHackingClickEffect(x, y) {
+        // Create matrix-style code particles
+        for (let i = 0; i < 25; i++) {
+            particles.push({
+                x: x,
+                y: y,
+                radius: Math.random() * 1.5 + 0.5,
+                vx: (Math.random() - 0.5) * 8,
+                vy: (Math.random() - 0.5) * 8,
+                life: 120,
+                color: '#0f0',
+                type: 'matrix',
+                text: Math.random() < 0.7 ? '1' : '0', // Binary code
+                fontSize: Math.random() * 14 + 8
+            });
+        }
+
+        // Add some bright green glow particles
+        for (let i = 0; i < 12; i++) {
+            particles.push({
+                x: x,
+                y: y,
+                radius: Math.random() * 4 + 2,
+                vx: (Math.random() - 0.5) * 10,
+                vy: (Math.random() - 0.5) * 10,
+                life: 80,
+                color: '#00ff00',
+                type: 'glow',
+                glow: true
+            });
+        }
+    }
+
+    function createSpaceClickEffect(x, y) {
+        // Create star-like particles for space theme
+        for (let i = 0; i < 20; i++) {
+            particles.push({
+                x: x,
+                y: y,
+                radius: Math.random() * 2 + 0.5,
+                vx: (Math.random() - 0.5) * 6,
+                vy: (Math.random() - 0.5) * 6,
+                life: 100,
+                color: '#fff',
+                type: 'space',
+                twinkle: true
+            });
+        }
+    }
+
+    function createOceanClickEffect(x, y) {
+        // Create water bubble effects
+        for (let i = 0; i < 12; i++) {
+            particles.push({
+                x: x,
+                y: y,
+                radius: Math.random() * 4 + 2,
+                vx: (Math.random() - 0.5) * 5,
+                vy: -(Math.random() * 3 + 2), // Float upward
+                life: 150,
+                color: '#7FDBFF',
+                type: 'bubble',
+                bubble: true
+            });
+        }
+
+        // Add some water ripple rings
+        for (let ring = 1; ring <= 3; ring++) {
+            particles.push({
+                x: x,
+                y: y,
+                radius: ring * 10,
+                vx: 0,
+                vy: 0,
+                life: 60,
+                color: '#7FDBFF',
+                type: 'ripple',
+                ripple: true,
+                maxRadius: ring * 15
+            });
+        }
+    }
+
+    function createDefaultClickEffect(x, y, themeName) {
         const themeColor = themes[themeName]?.color || '#fff';
 
         for (let i = 0; i < 20; i++) {
             particles.push({
-                x: event.x,
-                y: event.y,
+                x: x,
+                y: y,
                 radius: Math.random() * 2 + 1,
                 vx: (Math.random() - 0.5) * 4,
                 vy: (Math.random() - 0.5) * 4,
                 life: 100,
-                color: themeColor
+                color: themeColor,
+                type: 'default'
             });
         }
-    });
+    }
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -78,6 +180,73 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (p.life <= 0) particles.splice(i, 1);
                         p.x += p.vx;
                         p.y += p.vy;
+
+                        // Render different particle types
+                        if (p.type === 'matrix') {
+                            // Render matrix code particles
+                            ctx.font = p.fontSize + 'px monospace';
+                            ctx.fillStyle = p.color;
+                            ctx.fillText(p.text, p.x, p.y);
+
+                            // Add glow effect
+                            ctx.shadowColor = p.color;
+                            ctx.shadowBlur = 10;
+                            ctx.fillText(p.text, p.x, p.y);
+                            ctx.shadowBlur = 0;
+                        } else if (p.type === 'glow') {
+                            // Render glowing particles
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                            ctx.fillStyle = p.color;
+                            ctx.fill();
+
+                            if (p.glow) {
+                                ctx.shadowColor = p.color;
+                                ctx.shadowBlur = 15;
+                                ctx.fill();
+                                ctx.shadowBlur = 0;
+                            }
+                        } else if (p.type === 'bubble') {
+                            // Render bubble particles
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                            ctx.strokeStyle = p.color;
+                            ctx.lineWidth = 2;
+                            ctx.stroke();
+                            ctx.fillStyle = p.color + '40'; // Semi-transparent
+                            ctx.fill();
+                        } else if (p.type === 'ripple') {
+                            // Render ripple ring effects
+                            const progress = 1 - (p.life / 60);
+                            const currentRadius = p.radius * progress;
+
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2);
+                            ctx.strokeStyle = p.color;
+                            ctx.lineWidth = 3;
+                            ctx.globalAlpha = 1 - progress;
+                            ctx.stroke();
+                            ctx.globalAlpha = 1;
+                        } else if (p.type === 'space') {
+                            // Render space star particles with twinkling effect
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                            ctx.fillStyle = p.color;
+                            ctx.fill();
+
+                            if (p.twinkle) {
+                                ctx.shadowColor = p.color;
+                                ctx.shadowBlur = 5;
+                                ctx.fill();
+                                ctx.shadowBlur = 0;
+                            }
+                        } else {
+                            // Render default particles
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                            ctx.fillStyle = p.color;
+                            ctx.fill();
+                        }
                     } else {
                         const mouseInteraction = localStorage.getItem('mouseInteraction') || 'off';
                         if (mouseInteraction !== 'off') {

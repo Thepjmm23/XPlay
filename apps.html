@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps - Web Tools & Proxy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="Javascript/apply-settings.js" defer></script>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <nav>
+        <a href="index.html" class="nav-button">Home</a>
+        <a href="games.html" class="nav-button">Games</a>
+        <a href="apps.html" class="nav-button">📱 Apps</a>
+        <a href="music.html" class="nav-button">🎵 Music</a>
+        <a href="settings.html" class="nav-button">Settings</a>
+        <a href="dev.html" class="nav-button">Developer</a>
+        <button id="open-in-new-tab" class="nav-button special-button">Open in New Tab</button>
+    </nav>
+    <main class="apps-container">
+        <!-- Header Section -->
+        <div class="apps-header">
+            <h1>📱 Apps & Tools</h1>
+            <p class="subtitle">Discover amazing web applications and tools</p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="categories">
+            <button class="category-btn active" data-category="all">🎯 All Apps</button>
+            <button class="category-btn" data-category="productivity">⚡ Productivity</button>
+            <button class="category-btn" data-category="entertainment">🎮 Entertainment</button>
+            <button class="category-btn" data-category="social">👥 Social</button>
+            <button class="category-btn" data-category="education">📚 Education</button>
+            <button class="category-btn" data-category="utilities">🔧 Utilities</button>
+        </div>
+
+        <!-- Apps Grid -->
+        <div id="apps-grid" class="apps-grid">
+            <!-- Apps will be loaded here by JavaScript -->
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-state">
+            <div class="loading-spinner"></div>
+            <p>Loading amazing apps...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="error-state" style="display: none;">
+            <h3>⚠️ Oops!</h3>
+            <p>Could not load apps. Please try refreshing the page.</p>
+            <button onclick="location.reload()" class="retry-btn">🔄 Try Again</button>
+        </div>
+    </main>
+    <script src="Javascript/main.js"></script>
+    <script src="Javascript/apps.js"></script>
+</body>
+</html>

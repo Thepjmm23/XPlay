@@ -15,6 +15,14 @@
             document.getElementsByTagName('head')[0].appendChild(iconLink);
         }
 
+        // Interactivity
+        const clickEffectEnabled = localStorage.getItem('clickEffect') === 'true';
+        // Only update toggle if it exists on this page
+        const clickEffectToggle = document.getElementById('click-effect-toggle');
+        if (clickEffectToggle) {
+            clickEffectToggle.checked = clickEffectEnabled;
+        }
+
         // Anti-Close
         const antiCloseEnabled = localStorage.getItem('antiClose') === 'true';
         if (antiCloseEnabled) {
@@ -24,9 +32,84 @@
             });
         }
 
-        // Theme
+        // Custom Theme - Apply FIRST before theme styles (highest priority)
+        const savedCustomCss = localStorage.getItem('customCss');
+        const customCssEnabled = localStorage.getItem('customCssEnabled') !== 'false';
+
+        if (savedCustomCss && customCssEnabled) {
+            // Remove any existing custom CSS
+            const existingStyle = document.getElementById('custom-theme-styles');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+
+            // Apply custom CSS FIRST with highest priority
+            const style = document.createElement('style');
+            style.id = 'custom-theme-styles';
+            style.textContent = savedCustomCss;
+            document.head.appendChild(style);
+
+            // Debug: Log successful application
+            console.log('✅ Custom CSS applied FIRST:', savedCustomCss.substring(0, 100) + '...');
+        } else {
+            console.log('ℹ️ No custom CSS to apply or custom CSS disabled');
+        }
+
+        // Theme - Apply AFTER custom CSS so custom CSS can override
         const savedTheme = localStorage.getItem('theme') || 'space';
         document.body.className = savedTheme + '-theme';
+
+        // Listen for custom CSS changes from settings (real-time sync)
+        window.addEventListener('customCssChanged', (event) => {
+            const { css, enabled } = event.detail;
+
+            if (enabled && css) {
+                // Remove existing custom CSS
+                const existingStyle = document.getElementById('custom-theme-styles');
+                if (existingStyle) {
+                    existingStyle.remove();
+                }
+
+                // Apply new custom CSS immediately
+                const style = document.createElement('style');
+                style.id = 'custom-theme-styles';
+                style.textContent = css;
+                document.head.appendChild(style);
+            } else {
+                // Remove custom CSS
+                const existingStyle = document.getElementById('custom-theme-styles');
+                if (existingStyle) {
+                    existingStyle.remove();
+                }
+            }
+        });
+
+        // Listen for localStorage changes (works across all pages/tabs)
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'customCss' || e.key === 'customCssEnabled') {
+                const updatedCss = localStorage.getItem('customCss');
+                const updatedEnabled = localStorage.getItem('customCssEnabled') !== 'false';
+
+                if (updatedCss && updatedEnabled) {
+                    // Remove existing and apply updated CSS
+                    const existingStyle = document.getElementById('custom-theme-styles');
+                    if (existingStyle) {
+                        existingStyle.remove();
+                    }
+
+                    const style = document.createElement('style');
+                    style.id = 'custom-theme-styles';
+                    style.textContent = updatedCss;
+                    document.head.appendChild(style);
+                } else {
+                    // Remove custom CSS
+                    const existingStyle = document.getElementById('custom-theme-styles');
+                    if (existingStyle) {
+                        existingStyle.remove();
+                    }
+                }
+            }
+        });
     }
 
     // Run as soon as the body exists
@@ -62,9 +145,35 @@
         }
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initialize);
+    // Run as soon as possible, even before DOM is ready
+    function applyCustomCssNow() {
+        const savedCustomCss = localStorage.getItem('customCss');
+        const customCssEnabled = localStorage.getItem('customCssEnabled') !== 'false';
+
+        if (savedCustomCss && customCssEnabled) {
+            // Remove any existing custom CSS
+            const existingStyle = document.getElementById('custom-theme-styles');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+
+            // Apply custom CSS immediately with highest priority
+            const style = document.createElement('style');
+            style.id = 'custom-theme-styles';
+            style.textContent = savedCustomCss;
+            document.head.appendChild(style);
+
+            // Apply theme AFTER custom CSS
+            const savedTheme = localStorage.getItem('theme') || 'space';
+            document.body.className = savedTheme + '-theme';
+        }
+    }
+
+    // Apply immediately if document is ready
+    if (document.readyState !== 'loading') {
+        applyCustomCssNow();
     } else {
-        initialize();
+        // Apply as soon as DOM is available
+        document.addEventListener('DOMContentLoaded', applyCustomCssNow);
     }
 })();
