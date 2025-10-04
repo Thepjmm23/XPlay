@@ -364,6 +364,14 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     startAnimation(localStorage.getItem('theme') || 'space');
 
+    // Open in New Tab functionality
+    const openTabButton = document.getElementById('open-in-new-tab');
+    if (openTabButton) {
+        openTabButton.addEventListener('click', () => {
+            window.open('https://thepjmm23.github.io/XPlay/', '_blank');
+        });
+    }
+
     window.addEventListener('storage', (e) => {
         if (e.key === 'theme' || e.key === 'mouseInteraction') startAnimation(localStorage.getItem('theme') || 'space');
     });

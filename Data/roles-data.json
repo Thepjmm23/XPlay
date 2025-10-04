@@ -1,0 +1,226 @@
+{
+  "roles": {
+    "common": [
+      {
+        "id": "basic_user",
+        "name": "Basic User",
+        "emoji": "👤",
+        "description": "The default role for all users",
+        "rarity": "common",
+        "color": "#888888"
+      },
+      {
+        "id": "newbie",
+        "name": "Newbie",
+        "emoji": "🆕",
+        "description": "Fresh to the platform, still learning the ropes",
+        "rarity": "common",
+        "color": "#4CAF50"
+      },
+      {
+        "id": "chatter",
+        "name": "Chatter",
+        "emoji": "💬",
+        "description": "Loves to participate in conversations",
+        "rarity": "common",
+        "color": "#2196F3"
+      },
+      {
+        "id": "helper",
+        "name": "Helper",
+        "emoji": "🤝",
+        "description": "Always ready to lend a hand to others",
+        "rarity": "common",
+        "color": "#FF9800"
+      },
+      {
+        "id": "explorer",
+        "name": "Explorer",
+        "emoji": "🗺️",
+        "description": "Curious and always discovering new things",
+        "rarity": "common",
+        "color": "#9C27B0"
+      }
+    ],
+    "uncommon": [
+      {
+        "id": "cool_guy",
+        "name": "Cool Guy",
+        "emoji": "😎",
+        "description": "Effortlessly cool and collected",
+        "rarity": "uncommon",
+        "color": "#00BCD4"
+      },
+      {
+        "id": "creative",
+        "name": "Creative",
+        "emoji": "🎨",
+        "description": "Has a unique perspective and artistic flair",
+        "rarity": "uncommon",
+        "color": "#E91E63"
+      },
+      {
+        "id": "strategist",
+        "name": "Strategist",
+        "emoji": "♟️",
+        "description": "Thinks several moves ahead",
+        "rarity": "uncommon",
+        "color": "#607D8B"
+      },
+      {
+        "id": "mentor",
+        "name": "Mentor",
+        "emoji": "👨‍🏫",
+        "description": "Guides others with wisdom and experience",
+        "rarity": "uncommon",
+        "color": "#795548"
+      },
+      {
+        "id": "innovator",
+        "name": "Innovator",
+        "emoji": "💡",
+        "description": "Always coming up with new ideas",
+        "rarity": "uncommon",
+        "color": "#FFC107"
+      }
+    ],
+    "rare": [
+      {
+        "id": "epic_gamer",
+        "name": "Epic Gamer",
+        "emoji": "🎮",
+        "description": "Master of all games and challenges",
+        "rarity": "rare",
+        "color": "#9C27B0"
+      },
+      {
+        "id": "legend_speaker",
+        "name": "Legend Speaker",
+        "emoji": "🎤",
+        "description": "Commands attention whenever they speak",
+        "rarity": "rare",
+        "color": "#F44336"
+      },
+      {
+        "id": "mystic",
+        "name": "Mystic",
+        "emoji": "🔮",
+        "description": "Has an aura of mystery and wisdom",
+        "rarity": "rare",
+        "color": "#3F51B5"
+      },
+      {
+        "id": "champion",
+        "name": "Champion",
+        "emoji": "🏆",
+        "description": "Always comes out on top in competitions",
+        "rarity": "rare",
+        "color": "#FF5722"
+      },
+      {
+        "id": "visionary",
+        "name": "Visionary",
+        "emoji": "👁️",
+        "description": "Sees possibilities others can't imagine",
+        "rarity": "rare",
+        "color": "#009688"
+      }
+    ],
+    "epic": [
+      {
+        "id": "sigma_male",
+        "name": "Sigma Male",
+        "emoji": "🐺",
+        "description": "Independent, mysterious, and self-reliant",
+        "rarity": "epic",
+        "color": "#424242"
+      },
+      {
+        "id": "alpha_leader",
+        "name": "Alpha Leader",
+        "emoji": "👑",
+        "description": "Natural born leader who commands respect",
+        "rarity": "epic",
+        "color": "#FFD700"
+      },
+      {
+        "id": "genius",
+        "name": "Genius",
+        "emoji": "🧠",
+        "description": "Brilliant mind that solves impossible problems",
+        "rarity": "epic",
+        "color": "#2196F3"
+      },
+      {
+        "id": "phoenix",
+        "name": "Phoenix",
+        "emoji": "🔥",
+        "description": "Rises from ashes, stronger than before",
+        "rarity": "epic",
+        "color": "#FF5722"
+      },
+      {
+        "id": "oracle",
+        "name": "Oracle",
+        "emoji": "🔮",
+        "description": "Sees the future and guides others wisely",
+        "rarity": "epic",
+        "color": "#9C27B0"
+      }
+    ],
+    "legendary": [
+      {
+        "id": "chosen_one",
+        "name": "Chosen One",
+        "emoji": "⭐",
+        "description": "Destined for greatness, marked by fate itself",
+        "rarity": "legendary",
+        "color": "#FFD700"
+      },
+      {
+        "id": "immortal",
+        "name": "Immortal",
+        "emoji": "💎",
+        "description": "Lives forever, transcending time itself",
+        "rarity": "legendary",
+        "color": "#E91E63"
+      },
+      {
+        "id": "supreme",
+        "name": "Supreme",
+        "emoji": "👑",
+        "description": "The highest level of achievement possible",
+        "rarity": "legendary",
+        "color": "#9C27B0"
+      },
+      {
+        "id": "omnipotent",
+        "name": "Omnipotent",
+        "emoji": "⚡",
+        "description": "All-powerful, can achieve anything",
+        "rarity": "legendary",
+        "color": "#FFC107"
+      },
+      {
+        "id": "legend",
+        "name": "Legend",
+        "emoji": "🏆",
+        "description": "Stories will be told about this person forever",
+        "rarity": "legendary",
+        "color": "#FF9800"
+      }
+    ]
+  },
+  "rarityWeights": {
+    "common": 35,
+    "uncommon": 30,
+    "rare": 20,
+    "epic": 10,
+    "legendary": 5
+  },
+  "gameSettings": {
+    "maxCollectionSize": 100,
+    "tradeCooldownMinutes": 5,
+    "dailyRoleLimit": 10
+  }
+}

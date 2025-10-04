@@ -1,0 +1,152 @@
+{
+  "errorDefinitions": {
+    "server-offline": {
+      "id": "server-offline",
+      "title": "Server Offline",
+      "message": "The game server is currently unavailable. This could be due to maintenance or technical issues.",
+      "icon": "🔌",
+      "severity": "high",
+      "retryable": true,
+      "retryDelay": 5000,
+      "suggestions": [
+        "Check your internet connection",
+        "Try again in a few minutes",
+        "Contact support if the issue persists"
+      ]
+    },
+    "no-internet": {
+      "id": "no-internet",
+      "title": "No Internet Connection",
+      "message": "Unable to connect to the internet. Please check your network connection.",
+      "icon": "📡",
+      "severity": "high",
+      "retryable": true,
+      "retryDelay": 2000,
+      "suggestions": [
+        "Check your WiFi or mobile data connection",
+        "Restart your router if using WiFi",
+        "Try switching networks",
+        "Check if other websites are loading"
+      ]
+    },
+    "games-not-loading": {
+      "id": "games-not-loading",
+      "title": "Games Not Loading",
+      "message": "The games are having trouble loading. This might be a temporary issue.",
+      "icon": "🎮",
+      "severity": "medium",
+      "retryable": true,
+      "retryDelay": 3000,
+      "suggestions": [
+        "Refresh the page",
+        "Clear your browser cache",
+        "Try a different game",
+        "Check if JavaScript is enabled"
+      ]
+    },
+    "blocked-content": {
+      "id": "blocked-content",
+      "title": "Content Blocked",
+      "message": "This content appears to be blocked by your network or firewall.",
+      "icon": "🚫",
+      "severity": "medium",
+      "retryable": true,
+      "retryDelay": 4000,
+      "suggestions": [
+        "Try using a VPN if available",
+        "Check with your network administrator",
+        "Try accessing from a different network",
+        "Use the proxy feature if available"
+      ]
+    },
+    "browser-compatibility": {
+      "id": "browser-compatibility",
+      "title": "Browser Not Supported",
+      "message": "Your browser may not be fully compatible with this content.",
+      "icon": "🌐",
+      "severity": "low",
+      "retryable": false,
+      "retryDelay": 0,
+      "suggestions": [
+        "Update your browser to the latest version",
+        "Try using Chrome, Firefox, or Edge",
+        "Enable JavaScript in your browser settings"
+      ]
+    },
+    "server-error": {
+      "id": "server-error",
+      "title": "Server Error",
+      "message": "The server encountered an internal error. Please try again later.",
+      "icon": "⚠️",
+      "severity": "high",
+      "retryable": true,
+      "retryDelay": 5000,
+      "suggestions": [
+        "Wait a few minutes and try again",
+        "Clear your browser data",
+        "Contact support if the issue continues"
+      ]
+    },
+    "game-corrupted": {
+      "id": "game-corrupted",
+      "title": "Game File Corrupted",
+      "message": "The game files appear to be corrupted or incomplete.",
+      "icon": "💔",
+      "severity": "medium",
+      "retryable": true,
+      "retryDelay": 2000,
+      "suggestions": [
+        "Refresh the page to reload the game",
+        "Clear browser cache and cookies",
+        "Try accessing the game later"
+      ]
+    },
+    "maintenance-mode": {
+      "id": "maintenance-mode",
+      "title": "Under Maintenance",
+      "message": "The service is currently under maintenance. Please check back later.",
+      "icon": "🔧",
+      "severity": "low",
+      "retryable": false,
+      "retryDelay": 0,
+      "suggestions": [
+        "Check the service status page",
+        "Follow social media for updates",
+        "Try again in a few hours"
+      ]
+    },
+    "rate-limited": {
+      "id": "rate-limited",
+      "title": "Too Many Requests",
+      "message": "You've made too many requests. Please wait before trying again.",
+      "icon": "⏱️",
+      "severity": "low",
+      "retryable": true,
+      "retryDelay": 10000,
+      "suggestions": [
+        "Wait a few minutes before retrying",
+        "Reduce the frequency of your requests",
+        "Check if you're making unnecessary requests"
+      ]
+    },
+    "insufficient-storage": {
+      "id": "insufficient-storage",
+      "title": "Storage Full",
+      "message": "Your browser storage is full and cannot save game progress.",
+      "icon": "💾",
+      "severity": "medium",
+      "retryable": false,
+      "retryDelay": 0,
+      "suggestions": [
+        "Clear browser cache and cookies",
+        "Remove unused browser extensions",
+        "Free up space in your browser storage"
+      ]
+    }
+  },
+  "detectionSettings": {
+    "checkInterval": 5000,
+    "maxRetries": 3,
+    "timeoutThreshold": 10000
+  }
+}

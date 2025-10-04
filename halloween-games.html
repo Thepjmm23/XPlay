@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Games - XPlay</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="halloween-games.css">
+    <link rel="stylesheet" href="roles-game.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🎃 Halloween Games 🎃</h1>
+
+            <!-- Player Info Section -->
+            <div class="player-info">
+                <div class="player-display">
+                    <span class="player-label">Player:</span>
+                    <span id="current-player-name" class="player-name">Loading...</span>
+                </div>
+                <div class="daily-counter">
+                    <span id="daily-counter" class="counter-text">Loading...</span>
+                </div>
+            </div>
+
+            <!-- Name Change Section -->
+            <div class="name-change-section">
+                <input type="text" id="player-name-input" placeholder="Enter new name..." maxlength="20">
+                <button id="change-name-btn" class="name-btn">Change Name</button>
+                <button id="debug-menu-btn" class="debug-btn">🔧 Debug</button>
+            </div>
+
+            <div class="game-nav">
+                <button class="nav-btn active" data-game="trick-or-treat">Trick or Treat</button>
+                <button class="nav-btn" data-game="roles">Get Those ROLES</button>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <!-- Trick or Treat Game -->
+            <div id="trick-or-treat-game" class="game-section active">
+                <div class="game-card">
+                    <h2>🎃 Trick or Treat! 🎃</h2>
+                    <p>Click the button below to go trick-or-treating and collect spooky items!</p>
+
+                    <div class="trick-or-treat-area">
+                        <button id="trick-or-treat-btn" class="trick-or-treat-btn">
+                            🍬 Trick or Treat! 🍬
+                        </button>
+                        <div id="treat-result" class="treat-result"></div>
+                    </div>
+
+                    <div class="collection-section">
+                        <h3>Your Collection</h3>
+                        <div id="collection-grid" class="collection-grid">
+                            <p class="empty-collection">No items collected yet. Go trick-or-treating!</p>
+                        </div>
+                    </div>
+
+                    <div class="trading-section">
+                        <h3>🤝 Trading Post</h3>
+                        <div class="trading-controls">
+                            <select id="trade-from" class="trade-select">
+                                <option value="">Select item to trade...</option>
+                            </select>
+                            <button id="initiate-trade" class="trade-btn">Start Trade</button>
+                        </div>
+                        <div id="trade-area" class="trade-area hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get Those ROLES Game -->
+            <div id="roles-game" class="game-section">
+                <div class="game-card">
+                    <h2>👑 Get Those ROLES 👑</h2>
+                    <p>Click the button below to collect awesome roles and titles!</p>
+
+                    <div class="trick-or-treat-area">
+                        <button id="get-roles-btn" class="trick-or-treat-btn">
+                            🎲 Get ROLE! 🎲
+                        </button>
+                        <div id="roles-result" class="treat-result"></div>
+                    </div>
+
+                    <div class="collection-section">
+                        <h3>Your Roles Collection</h3>
+                        <div id="roles-collection-grid" class="collection-grid">
+                            <p class="empty-collection">No roles collected yet. Go get some roles!</p>
+                        </div>
+                    </div>
+
+                    <div class="trading-section">
+                        <h3>🤝 Role Trading Post</h3>
+                        <div class="trading-controls">
+                            <select id="roles-trade-from" class="trade-select">
+                                <option value="">Select role to trade...</option>
+                            </select>
+                            <button id="initiate-roles-trade" class="trade-btn">Start Trade</button>
+                        </div>
+                        <div id="roles-trade-area" class="trade-area hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="halloween-games.js"></script>
+    <script src="roles-game.js"></script>
+</body>
+</html>

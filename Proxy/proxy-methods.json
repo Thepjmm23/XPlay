@@ -1,0 +1,98 @@
+{
+  "proxyMethods": [
+    {
+      "id": "cors-anywhere",
+      "name": "CORS Anywhere",
+      "url": "https://cors-anywhere.herokuapp.com/",
+      "description": "Uses CORS proxy to bypass same-origin policy",
+      "enabled": true
+    },
+    {
+      "id": "allorigins",
+      "name": "All Origins",
+      "url": "https://api.allorigins.win/raw?url=",
+      "description": "Simple proxy that adds target URL as parameter",
+      "enabled": true
+    },
+    {
+      "id": "thingproxy",
+      "name": "ThingProxy",
+      "url": "https://thingproxy.freeboard.io/fetch/",
+      "description": "Free proxy service for fetching web content",
+      "enabled": true
+    },
+    {
+      "id": "proxyium",
+      "name": "Proxyium",
+      "url": "https://proxyium.herokuapp.com/?url=",
+      "description": "Heroku-based proxy service",
+      "enabled": true
+    },
+    {
+      "id": "bypasscors",
+      "name": "Bypass CORS",
+      "url": "https://bypasscors.herokuapp.com/api/?url=",
+      "description": "CORS bypass proxy service",
+      "enabled": true
+    },
+    {
+      "id": "urlreq",
+      "name": "URLReq",
+      "url": "https://urlreq.herokuapp.com/req/",
+      "description": "Request proxy service",
+      "enabled": true
+    },
+    {
+      "id": "corsproxy",
+      "name": "CORS Proxy",
+      "url": "https://corsproxy.github.io/",
+      "description": "GitHub Pages CORS proxy",
+      "enabled": true
+    },
+    {
+      "id": "jsonp",
+      "name": "JSONP Method",
+      "url": "",
+      "description": "Uses JSONP for cross-origin requests",
+      "enabled": true,
+      "requiresJsonp": true
+    },
+    {
+      "id": "iframe-direct",
+      "name": "Direct Iframe",
+      "url": "",
+      "description": "Direct iframe embedding method",
+      "enabled": true,
+      "requiresIframe": true
+    },
+    {
+      "id": "websocket-proxy",
+      "name": "WebSocket Proxy",
+      "url": "wss://websocket-proxy.herokuapp.com/",
+      "description": "WebSocket-based proxy service",
+      "enabled": true,
+      "requiresWebSocket": true
+    },
+    {
+      "id": "base64-encode",
+      "name": "Base64 Encoding",
+      "url": "",
+      "description": "Encodes URL in base64 for proxy bypass",
+      "enabled": true,
+      "requiresEncoding": true
+    },
+    {
+      "id": "data-uri",
+      "name": "Data URI Method",
+      "url": "",
+      "description": "Uses data URI scheme for content loading",
+      "enabled": true,
+      "requiresDataUri": true
+    }
+  ],
+  "fallbackSettings": {
+    "maxRetries": 3,
+    "retryDelay": 1000,
+    "timeout": 10000
+  }
+}

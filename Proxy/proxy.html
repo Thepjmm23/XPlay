@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPlay Proxy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="proxy.css">
+    <script src="../Javascript/apply-settings.js" defer></script>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <nav>
+        <a href="../index.html" class="nav-button">Home</a>
+        <a href="../games.html" class="nav-button">Games</a>
+        <a href="../music.html" class="nav-button">🎵 Music</a>
+        <a href="../settings.html" class="nav-button">Settings</a>
+        <button id="open-in-new-tab" class="nav-button special-button">Open in New Tab</button>
+    </nav>
+
+    <main class="proxy-container">
+        <h1>XPlay Proxy</h1>
+        <p>Unblock websites with multiple proxy methods</p>
+
+        <div class="proxy-form">
+            <div class="url-input-container">
+                <input type="url" id="target-url" placeholder="Enter URL to unblock (e.g., https://example.com)" required>
+                <button id="proxy-btn" class="proxy-button">Unblock Site</button>
+            </div>
+
+            <div class="proxy-options">
+                <div class="method-selector">
+                    <label for="proxy-method">Proxy Method:</label>
+                    <select id="proxy-method">
+                        <option value="auto">Auto (Try all methods)</option>
+                        <option value="cors-anywhere">CORS Anywhere</option>
+                        <option value="allorigins">All Origins</option>
+                        <option value="thingproxy">ThingProxy</option>
+                        <option value="proxyium">Proxyium</option>
+                        <option value="bypasscors">Bypass CORS</option>
+                        <option value="urlreq">URLReq</option>
+                        <option value="corsproxy">CORS Proxy</option>
+                        <option value="jsonp">JSONP Method</option>
+                        <option value="iframe-direct">Direct Iframe</option>
+                        <option value="websocket-proxy">WebSocket Proxy</option>
+                        <option value="base64-encode">Base64 Encoding</option>
+                        <option value="data-uri">Data URI Method</option>
+                    </select>
+                </div>
+
+                <div class="proxy-status">
+                    <div id="status-indicator" class="status-indicator"></div>
+                    <span id="status-text">Ready</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="proxy-results">
+            <div id="loading-indicator" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Trying proxy methods... <span id="current-method">CORS Anywhere</span></p>
+                <p class="attempt-counter">Attempt <span id="attempt-number">1</span> of <span id="max-attempts">3</span></p>
+            </div>
+
+            <div id="error-message" class="error-message hidden">
+                <h3>Proxy Error</h3>
+                <p id="error-text">Unable to access the requested URL with any proxy method.</p>
+                <button id="retry-btn" class="retry-button">Try Again</button>
+            </div>
+
+            <div id="success-container" class="success-container hidden">
+                <h3>Success!</h3>
+                <p>Content loaded successfully using <span id="success-method"></span></p>
+                <div class="content-display">
+                    <iframe id="proxy-iframe" width="100%" height="600" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="proxy-info">
+            <h3>How it works:</h3>
+            <ul>
+                <li>Enter the URL you want to access</li>
+                <li>Choose a proxy method or let it try all methods automatically</li>
+                <li>The system will try different methods until one works</li>
+                <li>If one method fails, it automatically tries the next one</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="proxy.js"></script>
+    <script src="../Javascript/main.js"></script>
+</body>
+</html>

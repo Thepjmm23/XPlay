@@ -34,6 +34,11 @@
                     "name":  "Subway-Surfers",
                     "image": "",
                     "file":  "./Subway-Surfers/index.html"
+                },
+                {
+                    "name": "Chat Room",
+                    "image": "./chat-icon.png", 
+                    "file": "./chat.html"
                 }
               ]
 }

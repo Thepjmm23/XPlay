@@ -1,0 +1,226 @@
+{
+  "items": {
+    "common": [
+      {
+        "id": "candy_corn",
+        "name": "Candy Corn",
+        "emoji": "🍬",
+        "description": "A classic Halloween treat that's more corn than candy",
+        "rarity": "common",
+        "color": "#FFD700"
+      },
+      {
+        "id": "plastic_spider",
+        "name": "Plastic Spider",
+        "emoji": "🕷️",
+        "description": "A fake spider that looks real enough to scare grandma",
+        "rarity": "common",
+        "color": "#000000"
+      },
+      {
+        "id": "rubber_bat",
+        "name": "Rubber Bat",
+        "emoji": "🦇",
+        "description": "Squeaks when you throw it at people",
+        "rarity": "common",
+        "color": "#4B0082"
+      },
+      {
+        "id": "glow_stick",
+        "name": "Glow Stick",
+        "emoji": "💚",
+        "description": "Provides questionable lighting for 4-6 hours",
+        "rarity": "common",
+        "color": "#00FF00"
+      },
+      {
+        "id": "party_hat",
+        "name": "Witch Hat",
+        "emoji": "🧙‍♀️",
+        "description": "Makes you look 23% more magical",
+        "rarity": "common",
+        "color": "#8B008B"
+      }
+    ],
+    "uncommon": [
+      {
+        "id": "mini_pumpkin",
+        "name": "Mini Pumpkin",
+        "emoji": "🎃",
+        "description": "Small but mighty, perfect for desktop decoration",
+        "rarity": "uncommon",
+        "color": "#FF8C00"
+      },
+      {
+        "id": "fake_blood",
+        "name": "Fake Blood Capsule",
+        "emoji": "🩸",
+        "description": "Bite down for instant vampire transformation",
+        "rarity": "uncommon",
+        "color": "#DC143C"
+      },
+      {
+        "id": "skeleton_keychain",
+        "name": "Skeleton Keychain",
+        "emoji": "🗝️",
+        "description": "Rattles when you walk, scares away boredom",
+        "rarity": "uncommon",
+        "color": "#C0C0C0"
+      },
+      {
+        "id": "ghost_garland",
+        "name": "Ghost Garland",
+        "emoji": "👻",
+        "description": "String of 5 translucent specters",
+        "rarity": "uncommon",
+        "color": "#F8F8FF"
+      },
+      {
+        "id": "monster_mask",
+        "name": "Monster Mask",
+        "emoji": "😱",
+        "description": "One size fits most... nightmares",
+        "rarity": "uncommon",
+        "color": "#228B22"
+      }
+    ],
+    "rare": [
+      {
+        "id": "carved_pumpkin",
+        "name": "Hand-Carved Pumpkin",
+        "emoji": "🎃",
+        "description": "Artisanally carved with genuine fear",
+        "rarity": "rare",
+        "color": "#FF6347"
+      },
+      {
+        "id": "haunted_mirror",
+        "name": "Haunted Mirror",
+        "emoji": "🪞",
+        "description": "Shows your reflection... and sometimes others",
+        "rarity": "rare",
+        "color": "#708090"
+      },
+      {
+        "id": "vampire_teeth",
+        "name": "Realistic Vampire Fangs",
+        "emoji": "🧛",
+        "description": "Custom fitted for maximum bite",
+        "rarity": "rare",
+        "color": "#FFFFFF"
+      },
+      {
+        "id": "witch_broom",
+        "name": "Mini Witch's Broom",
+        "emoji": "🧹",
+        "description": "Flies at speeds up to 3 mph (downhill)",
+        "rarity": "rare",
+        "color": "#8B4513"
+      },
+      {
+        "id": "crystal_ball",
+        "name": "Mystic Crystal Ball",
+        "emoji": "🔮",
+        "description": "Guaranteed to show your future (may be cloudy)",
+        "rarity": "rare",
+        "color": "#9370DB"
+      }
+    ],
+    "epic": [
+      {
+        "id": "golden_pumpkin",
+        "name": "Golden Pumpkin",
+        "emoji": "🎃",
+        "description": "Shimmers with otherworldly light",
+        "rarity": "epic",
+        "color": "#FFD700"
+      },
+      {
+        "id": "phantom_cloak",
+        "name": "Phantom Cloak",
+        "emoji": "👻",
+        "description": "Makes you 40% more invisible to responsibilities",
+        "rarity": "epic",
+        "color": "#2F4F4F"
+      },
+      {
+        "id": "enchanted_candle",
+        "name": "Enchanted Candle",
+        "emoji": "🕯️",
+        "description": "Never burns out, but also never stays lit",
+        "rarity": "epic",
+        "color": "#FF4500"
+      },
+      {
+        "id": "werewolf_claw",
+        "name": "Werewolf Claw Necklace",
+        "emoji": "🐺",
+        "description": "Howls when the moon is full (or when you're hungry)",
+        "rarity": "epic",
+        "color": "#8B0000"
+      },
+      {
+        "id": "magic_potion",
+        "name": "Bubbling Magic Potion",
+        "emoji": "🧪",
+        "description": "Effect varies by batch. May cause temporary superpowers",
+        "rarity": "epic",
+        "color": "#00CED1"
+      }
+    ],
+    "legendary": [
+      {
+        "id": "cursed_treasure",
+        "name": "Cursed Pirate Treasure",
+        "emoji": "💰",
+        "description": "Comes with 3 wishes and 47 curses",
+        "rarity": "legendary",
+        "color": "#B8860B"
+      },
+      {
+        "id": "immortal_soul",
+        "name": "Immortal Soul in a Jar",
+        "emoji": "👻",
+        "description": "Contains the essence of someone who lived 847 years",
+        "rarity": "legendary",
+        "color": "#191970"
+      },
+      {
+        "id": "time_crystal",
+        "name": "Ancient Time Crystal",
+        "emoji": "💎",
+        "description": "Can rewind time by up to 5 minutes (one use only)",
+        "rarity": "legendary",
+        "color": "#00BFFF"
+      },
+      {
+        "id": "dragon_egg",
+        "name": "Mini Dragon Egg",
+        "emoji": "🥚",
+        "description": "Hatches into a fire-breathing lizard (very small)",
+        "rarity": "legendary",
+        "color": "#DC143C"
+      },
+      {
+        "id": "phoenix_feather",
+        "name": "Phoenix Feather",
+        "emoji": "🪶",
+        "description": "Grants the power of resurrection (for chickens only)",
+        "rarity": "legendary",
+        "color": "#FF4500"
+      }
+    ]
+  },
+  "rarityWeights": {
+    "common": 40,
+    "uncommon": 30,
+    "rare": 20,
+    "epic": 8,
+    "legendary": 2
+  },
+  "gameSettings": {
+    "maxCollectionSize": 100,
+    "tradeCooldownMinutes": 5,
+    "dailyTreatLimit": 50
+  }
+}
